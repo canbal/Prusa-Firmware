@@ -1,11 +1,14 @@
-# Original Prusa i3 MK2 Firmware
+# Not So Original Prusa i3 MK2 Firmware
 
 ## General instructions
 
-Pre-compiled hex output on PRUSA RESEARCH site: http://prusa3d.com/downloads/firmware/
+This branch originated from the latest (at the time of writing) supported Prusa firmware for MK2S (tag v3.2.3) - see http://prusa3d.com/downloads/firmware/
 
-Just download and flash it to the electronics
+I have the MK42 bed attached at 90º to my MD3DP Y-axis and I had to update the bed calibration process to point to the new coordinates of the induction points.
 
+With these changes MP3DP is able to run and print as if it's a Prusa i3 MK2S.
+
+I also include a Platform IO configuration so code can be edited using VSCode instead of the jenky android builder -- also existing instructions with android didn't really work...
 
 ## Build instructions
 
