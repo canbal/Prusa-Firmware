@@ -41,3 +41,6 @@ build-env
 /lang/progmem1.var
 /lang/text.sym
 /lang/textaddr.txt
+.pio
+out
+.vscode

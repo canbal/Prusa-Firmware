@@ -19,8 +19,8 @@ float   world2machine_shift[2];
 #define WEIGHT_FIRST_ROW_Y_HIGH (0.3f)
 #define WEIGHT_FIRST_ROW_Y_LOW  (0.0f)
 
-#define BED_ZERO_REF_X (- 22.f + X_PROBE_OFFSET_FROM_EXTRUDER)
-#define BED_ZERO_REF_Y (- 0.6f + Y_PROBE_OFFSET_FROM_EXTRUDER)
+#define BED_ZERO_REF_X (0.0f)
+#define BED_ZERO_REF_Y (0.0f)
 
 // Scaling of the real machine axes against the programmed dimensions in the firmware.
 // The correction is tiny, here around 0.5mm on 250mm length.
@@ -30,8 +30,8 @@ float   world2machine_shift[2];
 #define MACHINE_AXIS_SCALE_Y 1.f
 
 #define BED_CALIBRATION_POINT_OFFSET_MAX_EUCLIDIAN  (0.8f)
-#define BED_CALIBRATION_POINT_OFFSET_MAX_1ST_ROW_X  (0.8f)
-#define BED_CALIBRATION_POINT_OFFSET_MAX_1ST_ROW_Y  (1.5f)
+#define BED_CALIBRATION_POINT_OFFSET_MAX_1ST_ROW_X  (1.5f)
+#define BED_CALIBRATION_POINT_OFFSET_MAX_1ST_ROW_Y  (0.8f)
 
 #define MIN_BED_SENSOR_POINT_RESPONSE_DMR           (2.0f)
 
@@ -51,26 +51,26 @@ const float bed_skew_angle_extreme = (0.25f * M_PI / 180.f);
 // Positions of the bed reference points in the machine coordinates, referenced to the P.I.N.D.A sensor.
 // The points are ordered in a zig-zag fashion to speed up the calibration.
 const float bed_ref_points[] PROGMEM = {
-    13.f  - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
-    216.f - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
+    11.f  - BED_ZERO_REF_X, 2.f  - BED_ZERO_REF_Y,
+    109.f - BED_ZERO_REF_X, 2.f  - BED_ZERO_REF_Y,
+    207.f - BED_ZERO_REF_X, 2.f  - BED_ZERO_REF_Y,
 
-    216.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
-    13.f  - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
+    207.f - BED_ZERO_REF_X, 104.5f - BED_ZERO_REF_Y,
+    109.f - BED_ZERO_REF_X, 104.5f - BED_ZERO_REF_Y,
+    11.f  - BED_ZERO_REF_X, 104.5f - BED_ZERO_REF_Y,
 
-    13.f  - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y,
-    216.f - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y
+    11.f  - BED_ZERO_REF_X, 205.5f - BED_ZERO_REF_Y,
+    109.f - BED_ZERO_REF_X, 205.5f - BED_ZERO_REF_Y,
+    207.f - BED_ZERO_REF_X, 205.5f - BED_ZERO_REF_Y
 };
 
 // Positions of the bed reference points in the machine coordinates, referenced to the P.I.N.D.A sensor.
 // The points are the following: center front, center right, center rear, center left.
 const float bed_ref_points_4[] PROGMEM = {
-    115.f - BED_ZERO_REF_X,   6.4f - BED_ZERO_REF_Y,
-    216.f - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y,
-    115.f - BED_ZERO_REF_X, 202.4f - BED_ZERO_REF_Y,
-    13.f  - BED_ZERO_REF_X, 104.4f - BED_ZERO_REF_Y
+    109.f - BED_ZERO_REF_X, 2.f   - BED_ZERO_REF_Y,
+    207.f - BED_ZERO_REF_X, 104.5f - BED_ZERO_REF_Y,
+    109.f - BED_ZERO_REF_X, 205.5f - BED_ZERO_REF_Y,
+    11.f  - BED_ZERO_REF_X, 104.5f - BED_ZERO_REF_Y
 };
 
 static inline float sqr(float x) { return x * x; }
@@ -872,8 +872,8 @@ error:
 // Search around the current_position[X,Y],
 // look for the induction sensor response.
 // Adjust the  current_position[X,Y,Z] to the center of the target dot and its response Z coordinate.
-#define FIND_BED_INDUCTION_SENSOR_POINT_X_RADIUS (8.f)
-#define FIND_BED_INDUCTION_SENSOR_POINT_Y_RADIUS (6.f)
+#define FIND_BED_INDUCTION_SENSOR_POINT_X_RADIUS (6.f)
+#define FIND_BED_INDUCTION_SENSOR_POINT_Y_RADIUS (8.f)
 #define FIND_BED_INDUCTION_SENSOR_POINT_XY_STEP  (1.f)
 #define FIND_BED_INDUCTION_SENSOR_POINT_Z_STEP   (0.2f)
 inline bool find_bed_induction_sensor_point_xy(int verbosity_level)
