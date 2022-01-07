@@ -47,14 +47,14 @@ const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 // Home position
 #define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS -5.6
+#define MANUAL_Y_HOME_POS -2.1
 #define MANUAL_Z_HOME_POS 0.15
 
 // Travel limits after homing
-#define X_MAX_POS 212
+#define X_MAX_POS 215
 #define X_MIN_POS 0
-#define Y_MAX_POS 215
-#define Y_MIN_POS -5.6
+#define Y_MAX_POS 225
+#define Y_MIN_POS -2.1
 #define Z_MAX_POS 208
 #define Z_MIN_POS 0.1
 
@@ -197,7 +197,7 @@ MOTOR CURRENT SETTINGS
 // Motor Current settings for RAMBo mini PWM value = MotorCurrentSetting * 255 / range
 #if MOTHERBOARD == 102 || MOTHERBOARD == 302
 #define MOTOR_CURRENT_PWM_RANGE 2000
-#define DEFAULT_PWM_MOTOR_CURRENT  {1000, 1000, 650} // {XY,Z,E}
+#define DEFAULT_PWM_MOTOR_CURRENT  {600, 1000, 650} // {XY,Z,E}
 #define DEFAULT_PWM_MOTOR_CURRENT_LOUD  {1200, 1000, 800} // {XY,Z,E}
 #define Z_SILENT 0
 #define Z_HIGH_POWER 200
@@ -216,8 +216,8 @@ BED SETTINGS
 // Mesh definitions
 #define MESH_MIN_X 11
 #define MESH_MAX_X 207
-#define MESH_MIN_Y 2
-#define MESH_MAX_Y 205.5
+#define MESH_MIN_Y 12
+#define MESH_MAX_Y 215.5
 
 // Mesh upsample definition
 #define MESH_NUM_X_POINTS 7
